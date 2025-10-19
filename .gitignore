@@ -20,6 +20,10 @@ build/
 data/
 !data/.gitkeep
 
+# runtime data (local dev)
+.data/
+!.data/.gitkeep
+
 # Database
 *.sqlite
 *.sqlite-journal
