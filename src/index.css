@@ -1,0 +1,236 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&family=Manrope:wght@400;600;800&family=Montserrat:wght@400;600;800&display=swap');
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-dark-bg text-white font-sans antialiased;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@layer utilities {
+  .vignette {
+    position: relative;
+  }
+  
+  .vignette::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      ellipse at center,
+      transparent 0%,
+      rgba(11, 11, 15, 0.3) 70%,
+      rgba(11, 11, 15, 0.6) 100%
+    );
+  }
+  
+  .text-shadow-glow {
+    text-shadow: 0 0 20px currentColor, 0 0 40px currentColor;
+  }
+  
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Canvas container */
+.ticker-canvas-container {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  min-height: 400px;
+  overflow: hidden;
+  background: #0B0B0F;
+  cursor: pointer;
+}
+
+.ticker-canvas-container canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* FPS Monitor (development only) */
+.fps-monitor {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #0f0;
+  padding: 8px 12px;
+  font-family: monospace;
+  font-size: 14px;
+  border-radius: 4px;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.fps-monitor.warning {
+  color: #ff0;
+}
+
+.fps-monitor.error {
+  color: #f00;
+}
+
+/* Loading spinner */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top-color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Gallery styles */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.5rem;
+  }
+}
+
+/* Lightbox */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+.lightbox-image {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  user-select: none;
+}
+
+/* Admin panel */
+.admin-panel {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.admin-section {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-section h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+/* Upload dropzone */
+.dropzone {
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dropzone:hover,
+.dropzone.active {
+  border-color: white;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Buttons */
+.btn {
+  @apply px-4 py-2 rounded-lg font-medium transition-all duration-200;
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-dark-bg;
+}
+
+.btn-primary {
+  @apply bg-white text-dark-bg hover:bg-gray-200;
+  @apply focus:ring-white;
+}
+
+.btn-secondary {
+  @apply bg-dark-panel text-white border border-dark-border hover:bg-opacity-80;
+  @apply focus:ring-white;
+}
+
+.btn-danger {
+  @apply bg-red-600 text-white hover:bg-red-700;
+  @apply focus:ring-red-500;
+}
+
+/* Inputs */
+.input {
+  @apply w-full px-4 py-2 rounded-lg bg-dark-panel border border-dark-border;
+  @apply text-white placeholder-gray-500;
+  @apply focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent;
+}
+
+/* Textarea */
+.textarea {
+  @apply input min-h-[100px] resize-y;
+}
