@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Layout from '../components/Layout';
 import TickerCanvas from '../components/TickerCanvas';
 import ZaRotator from '../components/ZaRotator';
@@ -92,7 +92,7 @@ export default function App() {
           autoQuality: settings.auto_quality,
           minFps: settings.min_fps,
         }}
-        showFps={import.meta.env.DEV}
+        //showFps={import.meta.env.DEV}
       />
 
       {/* ZA Rotator Section */}

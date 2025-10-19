@@ -10,7 +10,11 @@
     "noEmit": false,
     "jsx": "preserve",
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "allowImportingTsExtensions": false,
+    "resolveJsonModule": true,
+    "noUnusedParameters": false,
+    "noUnusedLocals": false
   },
   "include": ["server/**/*"],
   "exclude": ["node_modules", "dist", "dist-server"]

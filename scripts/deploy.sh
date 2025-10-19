@@ -58,9 +58,9 @@ fi
 # Restart PM2 process
 echo "Restarting application..."
 if pm2 list | grep -q "fathersday"; then
-    pm2 reload ecosystem.config.js
+    pm2 reload ecosystem.config.cjs
 else
-    pm2 start ecosystem.config.js
+    pm2 start ecosystem.config.cjs
 fi
 
 # Save PM2 configuration

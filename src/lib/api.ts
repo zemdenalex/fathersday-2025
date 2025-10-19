@@ -108,7 +108,7 @@ export async function fetchAtlasData(): Promise<AtlasData> {
     throw new Error('Atlas not found. Please build it in admin panel.');
   }
   
-  const data = await response.json();
+  await response.json();
   
   // Fetch the actual JSON data
   const atlasJsonResponse = await fetch('/atlas/atlas.json');

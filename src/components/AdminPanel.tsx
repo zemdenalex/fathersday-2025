@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import {
   Settings,
   Photo,
@@ -17,7 +17,6 @@ interface AdminPanelProps {
 }
 
 export default function AdminPanel({ token, onLogout }: AdminPanelProps) {
-  const [settings, setSettings] = useState<Settings | null>(null);
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [loading, setLoading] = useState(true);
   const [uploadProgress, setUploadProgress] = useState(0);
@@ -44,7 +43,6 @@ export default function AdminPanel({ token, onLogout }: AdminPanelProps) {
         fetchPhotos(),
       ]);
 
-      setSettings(settingsData);
       setPhotos(photosData);
 
       // Populate form
@@ -259,7 +257,7 @@ export default function AdminPanel({ token, onLogout }: AdminPanelProps) {
 
         {/* ZA Rotator Settings */}
         <div className="admin-section">
-          <h3>ЗА {...} Rotator</h3>
+          <h3>ЗА ... Rotator</h3>
           <div className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">

@@ -1,7 +1,6 @@
 import * as PIXI from 'pixi.js';
 import { AtlasTextures, loadAtlas } from './atlas';
 import { generateTextMask, mapTilesToGlyph, calculateTileSize, calculateContainerSize, waitForFont } from './glyphMap';
-import { hexToNumber, desaturate } from './colors';
 
 export interface PixiTickerConfig {
   text: string;
@@ -115,7 +114,6 @@ export class PixiTicker {
 
     // Create sprites for each mapping
     for (const mapping of mappings) {
-      const tile = this.atlas.data.tiles[mapping.tileIndex];
       const texture = this.atlas.tiles[mapping.tileIndex];
 
       const sprite = new PIXI.Sprite(texture);
@@ -177,7 +175,7 @@ export class PixiTicker {
       duplicate.scale.copyFrom(sprite.scale);
       duplicate.x = sprite.x + width + 100; // Gap between loops
       duplicate.y = sprite.y;
-      duplicate.filters = sprite.filters;
+      duplicate.filters = sprite.filters ? [...sprite.filters] : null;
       duplicate.eventMode = 'static';
       duplicate.cursor = 'pointer';
 

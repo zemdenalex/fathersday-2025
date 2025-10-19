@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { getNextColor } from '../lib/colors';
 
 interface ZaRotatorProps {
@@ -18,7 +18,7 @@ export default function ZaRotator({
   const [colorIndex, setColorIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [direction, setDirection] = useState<'in' | 'out'>('in');
-  const timeoutRef = useRef<NodeJS.Timeout>();
+  const timeoutRef = useRef<number>();
 
   useEffect(() => {
     const cycle = () => {

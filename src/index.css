@@ -2,14 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&family=Manrope:wght@400;600;800&family=Montserrat:wght@400;600;800&display=swap');
-
 @layer base {
-  * {
-    @apply border-border;
-  }
-  
   body {
     @apply bg-dark-bg text-white font-sans antialiased;
     margin: 0;
@@ -62,7 +55,6 @@
     scrollbar-width: none;
   }
   
-  /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -74,7 +66,6 @@
   }
 }
 
-/* Canvas container */
 .ticker-canvas-container {
   position: relative;
   width: 100%;
@@ -91,7 +82,6 @@
   height: 100%;
 }
 
-/* FPS Monitor (development only) */
 .fps-monitor {
   position: fixed;
   top: 10px;
@@ -114,7 +104,6 @@
   color: #f00;
 }
 
-/* Loading spinner */
 @keyframes spin {
   to {
     transform: rotate(360deg);
@@ -130,7 +119,6 @@
   animation: spin 0.8s linear infinite;
 }
 
-/* Gallery styles */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -145,7 +133,6 @@
   }
 }
 
-/* Lightbox */
 .lightbox-overlay {
   position: fixed;
   inset: 0;
@@ -164,7 +151,6 @@
   user-select: none;
 }
 
-/* Admin panel */
 .admin-panel {
   max-width: 1200px;
   margin: 0 auto;
@@ -186,7 +172,6 @@
   color: white;
 }
 
-/* Upload dropzone */
 .dropzone {
   border: 2px dashed rgba(255, 255, 255, 0.3);
   border-radius: 8px;
@@ -202,7 +187,6 @@
   background: rgba(255, 255, 255, 0.05);
 }
 
-/* Buttons */
 .btn {
   @apply px-4 py-2 rounded-lg font-medium transition-all duration-200;
   @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-dark-bg;
@@ -223,14 +207,12 @@
   @apply focus:ring-red-500;
 }
 
-/* Inputs */
 .input {
   @apply w-full px-4 py-2 rounded-lg bg-dark-panel border border-dark-border;
   @apply text-white placeholder-gray-500;
   @apply focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent;
 }
 
-/* Textarea */
 .textarea {
   @apply input min-h-[100px] resize-y;
 }
